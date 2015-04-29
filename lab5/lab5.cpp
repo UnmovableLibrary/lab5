@@ -18,7 +18,7 @@ using namespace std;
 
 #define MAX_TEXTURES 	 10  	// max textures displayed
 //*****************************************************************
-// Begin: Globa variables about the camera location and orientation
+// Begin: Global variables about the camera location and orientation
 //*****************************************************************
 
 //Camera on y = 0 plan, circling around (0,0,0)
@@ -52,7 +52,7 @@ double upx, upy, upz;
 char currentAxis;
 GLuint textureArray[MAX_TEXTURES];
 //*****************************************************************
-// End of Globa variables about the camera location and orientation
+// End of Global variables about the camera location and orientation
 //*****************************************************************
 
 void drawAxesXYZ()
@@ -131,7 +131,7 @@ void initCameraSetting()
 //The following variable records the rotation speed of the camera
 	C_increment = (2*PI / (360*2)  );
 
-//Recording the currnet position of the camera.
+//Recording the current position of the camera.
 	eyex = 0; eyey = 0; eyez = C_Radius;//C_Radius;
 
 //Specifies the position of the point looked at as (0,0,0).
@@ -193,10 +193,6 @@ void moveCamera()
 }
 
 
-//*****************************************************************
-// Beginning of Code added by S. Lin for  Lab3 demo 
-//*****************************************************************
-
 void keyboard (unsigned char key, int x, int y)
 {
    switch (key) {
@@ -240,26 +236,13 @@ void keyboard (unsigned char key, int x, int y)
 }
 
 
-
-//***************************************************************
-// Some constants about the resolution of basic geometric object
-// You can change them or remove them if you don't need them.
-//***************************************************************
-#define NUM_SIDES   20 
-#define NUM_RINGS	20
-#define NUM_SLICES	20
-#define NUM_STACKS	20
-
 //*****************************************************
-//A gloabal GLUquadricObj object dynamically allocated 
+//A global GLUquadricObj object dynamically allocated 
 //	for drawing GLU guadric objects in display() 
 //*****************************************************
 GLUquadricObj * ptrToQuadricInfo;
 GLUquadric * ptrToGLUquadricInfo;
 
-//***************************************************************
-//You don't have to chnage the reshape function
-//***************************************************************
 //***************************************************************
 //OpenGL commands to regenerate the scene saved in two functions:
 //		display() and reshape( int w, int h)
@@ -320,10 +303,6 @@ void createBell()
 	 glutSolidCube(.25); 
 	 glPopMatrix();
 }
-//***************************************************************
-//You should add in your own code in this function 
-//	to compose a static scene of at least 8 objects
-//***************************************************************
 
 void createBase()
 {
@@ -421,12 +400,6 @@ void display()
 	 glMatrixMode(GL_MODELVIEW);
 	 glLoadIdentity();
 
-
-	 //***************************************************
-	 // Set up ModelView Matrix by using
-	 //		glLookAt to set the camera location, viewing, and orientation.
-	 // You should modify the following according to your own setting
-	 //***************************************************
 	 gluLookAt
 	 ( eyex, eyey, eyez, centerx, centery, centerz, upx, upy, upz);
 	 //View the object through the camera settings
